@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService {
 			session.setAttribute("loginUser", loginUser);
 		} catch (Exception e) {
 			e.printStackTrace();
-			throw new CoreException(ErrorCode.OAUTH_USERNAME_PASSWORD_ERROR);
+			throw new CoreException(ErrorCode.OAUTH_USERNAME_PASSWORD_ERROR, e);
 		} 
 	}
 

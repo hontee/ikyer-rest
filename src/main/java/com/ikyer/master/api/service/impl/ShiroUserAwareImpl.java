@@ -34,8 +34,8 @@ public class ShiroUserAwareImpl implements ShiroUserAware {
 	@Override
 	public Set<String> getRoles() {
 		Set<String> sets = new HashSet<>();
-		sets.add("admin");
 		sets.add("user");
+		sets.add("admin");
 		return sets;
 	}
 

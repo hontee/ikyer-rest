@@ -9,5 +9,7 @@ import com.ikyer.master.api.data.domain.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>,
 	JpaSpecificationExecutor<Product> {
+	
+	Product findByUrl(String url);
 
 }

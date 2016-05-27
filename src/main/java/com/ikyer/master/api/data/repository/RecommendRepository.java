@@ -9,5 +9,7 @@ import com.ikyer.master.api.data.domain.Recommend;
 @Repository
 public interface RecommendRepository extends JpaRepository<Recommend, Long>, 
 	JpaSpecificationExecutor<Recommend> {
+	
+	Recommend findByUrl(String url);
 
 }

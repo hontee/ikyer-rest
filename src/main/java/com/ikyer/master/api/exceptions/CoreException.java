@@ -11,6 +11,11 @@ public class CoreException extends Exception {
 		this.errorCode = errorCode;
 	}
 
+	public CoreException(ErrorCode errorCode, Throwable arg0) {
+		super(arg0);
+		this.errorCode = errorCode;
+	}
+
 	public String getErrorCode() {
 		return errorCode.getName();
 	}
