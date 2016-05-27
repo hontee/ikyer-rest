@@ -7,6 +7,8 @@ import javax.persistence.MappedSuperclass;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 /**
  * 授权实体基类，基于{@link User}类，通过JPA提供的{@link AuditorAware<T>}接口实现自动注入。
  * <li>添加注解{@link @CreatedBy} 和 {@link @LastModifiedBy}自动注入授权用户实体</li>
@@ -23,6 +25,7 @@ public abstract class AuditorObject extends BaseObject {
 	@JoinColumn(name = "creator")
 	private User creator;
 
+	@JSONField(serialize = false)
 	@LastModifiedBy
 	@ManyToOne
 	@JoinColumn(name = "editor")

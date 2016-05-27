@@ -54,12 +54,15 @@ public abstract class BaseObject implements Serializable {
 	@Length(max = 1024)
 	private String description;
 	
+	@NotNull
 	@Column(columnDefinition = "tinyint default 1")
 	private Byte state;
 	
+	@NotNull
 	@CreatedDate
 	private Date created;
 	
+	@NotNull
 	@LastModifiedDate
 	@Column(name = "last_modified")
 	private Date lastModified;

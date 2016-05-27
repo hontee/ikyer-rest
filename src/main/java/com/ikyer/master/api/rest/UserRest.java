@@ -1,26 +1,12 @@
 package com.ikyer.master.api.rest;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import org.springframework.context.annotation.Scope;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.ikyer.master.api.service.UserService;
-
-@Path("users")
-@Produces(MediaType.APPLICATION_JSON)
+@RestController
+@Scope("prototype")
+@RequestMapping("api/users")
 public class UserRest {
 
-	@Autowired
-	private UserService userS;
-	
-	@GET
-	@Path("{id}")
-	public Response findById(@PathParam("id") Long id) {
-		return Response.ok(userS.findOne(id)).build();
-	}
 }

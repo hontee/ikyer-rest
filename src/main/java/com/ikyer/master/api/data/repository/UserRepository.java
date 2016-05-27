@@ -9,4 +9,8 @@ import com.ikyer.master.api.data.domain.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>, JpaSpecificationExecutor<User> {
 
+	User findByName(String name);
+	
+	User findByEmail(String email);
+	
 }

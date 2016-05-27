@@ -19,12 +19,21 @@ public class User extends BaseObject {
 
 	@NotNull
 	@Length(max = 64)
+	private String email;
+	
+	@NotNull
+	@Column(name="is_email_set", columnDefinition = "tinyint default 0")
+	private Byte isEmailSet;
+	
+	@NotNull
+	@Length(max = 64)
 	private String password;
 
 	@NotNull
 	@Length(max = 64)
 	private String salt;
 
+	@NotNull
 	@Column(columnDefinition = "tinyint default 1")
 	private Byte type;
 	
@@ -40,6 +49,22 @@ public class User extends BaseObject {
 		super(title);
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Byte getIsEmailSet() {
+		return isEmailSet;
+	}
+
+	public void setIsEmailSet(Byte isEmailSet) {
+		this.isEmailSet = isEmailSet;
+	}
+
 	public String getPassword() {
 		return password;
 	}
@@ -62,6 +87,10 @@ public class User extends BaseObject {
 
 	public void setType(Byte type) {
 		this.type = type;
+	}
+	
+	public String randomSalt() {
+		return randomUUID().toUpperCase();
 	}
 
 }

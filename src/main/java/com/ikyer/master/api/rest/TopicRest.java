@@ -1,28 +1,28 @@
 package com.ikyer.master.api.rest;
 
-import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.ikyer.master.api.data.domain.Topic;
 import com.ikyer.master.api.service.TopicService;
 
-@Path("topics")
-@Produces(MediaType.APPLICATION_JSON)
+@RestController
+@Scope("prototype")
+@RequestMapping("api/topics")
 public class TopicRest {
 	
-	@Inject
+	@Autowired
 	private TopicService topicS;
 	
-	@GET
-	@Path("{id}")
-	public Response findById(@PathParam("id") Long id) {
+	@RequestMapping("{id}")
+	public ResponseEntity<Topic> findById(@PathVariable Long id) throws Exception {
 		Topic topic = topicS.findOne(id);
-		return Response.ok(topic).build();
+		return new ResponseEntity<Topic>(topic, HttpStatus.OK);
 	}
 
 }
