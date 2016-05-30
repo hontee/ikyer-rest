@@ -31,7 +31,7 @@ public class RecommendRest {
 	
 	@RequiresRoles({"user","admin"})
 	@RequestMapping(value = "share", method = RequestMethod.POST)
-	public ResponseEntity<ResponseVO> addRecommend(@Validated RecommendForm form, BindingResult r) {
+	public ResponseEntity<ResponseVO> share(@Validated RecommendForm form, BindingResult r) {
 		logger.info("用户推荐产品");
 		ResponseVO vo = new ResponseVO();
 		

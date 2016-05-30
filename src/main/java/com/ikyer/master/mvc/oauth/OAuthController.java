@@ -1,8 +1,9 @@
-package com.ikyer.master.mvc.base;
+package com.ikyer.master.mvc.oauth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ikyer.master.api.service.UserService;
@@ -58,6 +59,36 @@ public class OAuthController {
 	public String logout() {
 		userS.logout();
 		return "redirect:/";
+	}
+	
+	/**
+	 * 用户关注的产品 / 用户中心
+	 * @param username
+	 * @return
+	 */
+	@RequestMapping("{username}/dashbord")
+	public String dashbord(@PathVariable String username) {
+		return "users/dashbord";
+	}
+	
+	/**
+	 * 用户设置
+	 * @param username
+	 * @return
+	 */
+	@RequestMapping("{username}/settings")
+	public String settings(@PathVariable String username) {
+		return "users/settings";
+	}
+	
+	/**
+	 * 用户关注的主题
+	 * @param username
+	 * @return
+	 */
+	@RequestMapping("{username}/topics")
+	public String topics(@PathVariable String username) {
+		return "users/topics";
 	}
 
 }

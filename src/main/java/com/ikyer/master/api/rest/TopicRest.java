@@ -51,5 +51,25 @@ public class TopicRest {
 		vo.setResult(entity);
 		return new ResponseEntity<ResponseVO>(vo, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "{id}/follow", method = RequestMethod.POST)
+	public ResponseEntity<ResponseVO> follow(@PathVariable Long id) {
+		logger.info("关注主题：{}", id);
+		ResponseVO vo = new ResponseVO();
+		topicS.follow(id);
+		vo.setSuccess(true);
+		vo.setMessage("关注成功");
+		return new ResponseEntity<ResponseVO>(vo, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "{id}/unfollow", method = RequestMethod.POST)
+	public ResponseEntity<ResponseVO> unfollow(@PathVariable Long id) {
+		logger.info("取消关注主题：{}", id);
+		ResponseVO vo = new ResponseVO();
+		topicS.unfollow(id);
+		vo.setSuccess(true);
+		vo.setMessage("取消关注成功");
+		return new ResponseEntity<ResponseVO>(vo, HttpStatus.OK);
+	}
 
 }

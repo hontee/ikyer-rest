@@ -1,4 +1,4 @@
-package com.ikyer.master.mvc.base;
+package com.ikyer.master.mvc.error;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;

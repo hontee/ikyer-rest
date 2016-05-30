@@ -1,4 +1,4 @@
-<@overried name="body">
+<@override name="body">
 <div class="container">
     <div class="columns">
         <div class="one-half column centered">
@@ -24,6 +24,6 @@
         </div>
     </div>
 </div>
-</@overried>
+</@override>
 
 <@extends name="../base.ftl"/>

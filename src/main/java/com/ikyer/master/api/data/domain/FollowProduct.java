@@ -3,6 +3,8 @@ package com.ikyer.master.api.data.domain;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -21,6 +23,20 @@ public class FollowProduct extends FollowObject{
 
 	@Id
 	private Long fid;
+	
+	/**
+	 * 用户关注的产品
+	 */
+	@ManyToOne
+	@JoinColumn(name = "fid", insertable = false, updatable = false)
+	private Product product;
+	
+	/**
+	 * 用户
+	 */
+	@ManyToOne
+	@JoinColumn(name = "oid", insertable = false, updatable = false)
+	private User user;
 	
 	public FollowProduct(Long oid, Long fid) {
 		super();
@@ -48,4 +64,20 @@ public class FollowProduct extends FollowObject{
 		this.fid = fid;
 	}
 
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
 }
